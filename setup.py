@@ -32,7 +32,7 @@ setup(
 
     # Author details
     author='Dave Hocker',
-    author_email='AtHomeX10@gnail.com',
+    author_email='AtHomeX10@gmail.com',
 
     install_requires=['Adafruit-Blinka'],
 
@@ -45,10 +45,11 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Libraries',
         'Topic :: System :: Hardware',
-        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Operating System :: Raspbian',
     ],
 
     # What does your project relate to?
