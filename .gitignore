@@ -6,3 +6,4 @@ build*
 bundles
 circuitpython_dotstarapa102.egg-info/
 dist/
+.eggs/
