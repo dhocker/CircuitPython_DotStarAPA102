@@ -1,6 +1,8 @@
 Introduction
 ============
 
+Copyright © 2018 by Dave Hocker
+
 DotStarAPA102 is a CircuitPython based driver for Adafruit DotStar strings that use the
 APA102/APA102C chip. It was inspired by the
 `Adafruit_DotStar_Pi <https://github.com/adafruit/Adafruit_DotStar_Pi>`_
@@ -9,7 +11,21 @@ that found in the Adafruit_DotStar_Pi package.
 
 **DotStarAPA102 is specifically designed for the Raspberry Pi.**
 
-.. todo:: Describe what the library does.
+This driver provides a set of methods and properties that facilitate
+manipulating the addressable pixels of a DotStar LED string. The driver
+treats the DotStar string as a linear array of pixels where each pixel
+is defined by brightness, red, green and blue (BRGB). The first pixel
+of the string is pixel 0 while the last pixel of the string is pixel n - 1
+(e.g. n = 30 for a 30 pixel string).
+
+The methods facilitate setting individual pixels (set_pixel) or slices of
+pixels (fill).
+
+License
+=======
+
+Unless otherwise stated, this project is subject to the
+`GNU General Public License v3 (GPLv3) <http://www.gnu.org/licenses/gpl.html>`_.
 
 Dependencies
 =============
@@ -40,6 +56,8 @@ https://learn.adafruit.com/adafruit-dotstar-leds for more details on DotStars.
 .. image:: ./docs/DotStar-Wiring-Diagram.png
    :alt: DotStar Wiring Diagram
 
+This diagram was adapted from https://learn.adafruit.com/assets/63125
+and is subject to its `license <https://creativecommons.org/licenses/by-sa/3.0/>`_.
 
 Installing from Source
 ======================
@@ -55,8 +73,56 @@ Here we install the CircuitPython_DotStarAPA102 package into a VENV.
 This sequence activates your VEVN, changes into its home directory and runs the
 setup.py script.
 
-Usage Example
-=============
+Usage Examples
+==============
+
+Code Snippet
+------------
+
+Here is a code snippet that shows all of the basics for driving DotStars.
+
+
+.. code-block:: shell
+
+    import time
+    import board
+    import busio
+    from adafruit_bus_device import spi_device
+    from circuitpython_dotstarapa102.dotstarapa102 import DotStarAPA102
+
+    # Try to create an SPI device for the onboard SPI interface
+    # We are using the standard SPI pins
+    # SCLK = #23 or GPIO 11 (clock)
+    # MOSI = #19 or GPIO 10 (data out)
+    # MISO = #21 or GPIO 09 (data in, not used for driving DotStars)
+
+    spi_bus = busio.SPI(board.SCLK, board.MOSI, board.MISO)
+
+    # Wrap the SPI bus in a context manager
+    # The baudrate here is believed to be the maximum for an RPi
+
+    spi_dev = spi_device.SPIDevice(spi_bus, baudrate=15000000)
+
+    # Create DotStar driver from the context manager
+    # This is a 30 pixel DotStar string
+    ds = DotStarAPA102(spi_dev, 30)
+
+    # Set brightness to 1/8th (4 out of 31)
+    ds.global_brightness = 4
+
+    # Fill all 30 pixels with red
+    ds.fill_rgb(0xFF, 0, 0)
+
+    # Transmit pixels to DotStar string and wait a bit
+    ds.show()
+    time.sleep(5.0)
+
+    # Clear all pixels (turn off)
+    ds.clear()
+
+
+Test Files
+----------
 
 The examples directory contains test files that serve as coding examples. You
 can test your install results as follows. This should work even if you have not
@@ -78,8 +144,7 @@ install dependencies (feel free to reuse the virtual environment from above):
 
 .. code-block:: shell
 
-    python3 -m venv .env
-    source .env/bin/activate
+    workon your-venv-name
     pip install Sphinx sphinx-rtd-theme
 
 Now, once you have the virtual environment activated:
@@ -90,7 +155,7 @@ Now, once you have the virtual environment activated:
     sphinx-build -E -W -b html . _build/html
 
 This will output the documentation to ``docs/_build/html``. Open the index.html in your browser to
-view them. It will also (due to -W) error out on any warning like Travis will. This is a good way to
+view them. It will also (due to -W) error out on any warning. This is a good way to
 locally verify it will pass.
 
 Appendices
