@@ -5,4 +5,4 @@
 .. use this format as the module name: "adafruit_foo.foo"
 
 .. automodule:: circuitpython_dotstarapa102
-   :members:
+   :members: dotstarapa102.py
