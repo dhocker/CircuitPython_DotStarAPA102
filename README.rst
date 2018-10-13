@@ -53,7 +53,7 @@ is required to do level shifting from 3.3V to 5V. In this case the SPI_CLK
 and SPI_MOSI signals are level shifted. See
 https://learn.adafruit.com/adafruit-dotstar-leds for more details on DotStars.
 
-.. image:: ./docs/DotStar-Wiring-Diagram.png
+.. image:: ./docs/DotStar Breadboard.png
    :alt: DotStar Wiring Diagram
 
 This diagram was adapted from https://learn.adafruit.com/assets/63125
