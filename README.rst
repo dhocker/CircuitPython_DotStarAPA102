@@ -56,8 +56,7 @@ https://learn.adafruit.com/adafruit-dotstar-leds for more details on DotStars.
 .. image:: ./docs/DotStar-Breadboard.png
    :alt: DotStar Wiring Diagram
 
-This diagram was adapted from https://learn.adafruit.com/assets/63125
-and is subject to its `license <https://creativecommons.org/licenses/by-sa/3.0/>`_.
+This diagram was drawn using the `Fritzing program <http://fritzing.org/home/>`_.
 
 Installing from Source
 ======================
