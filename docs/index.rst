@@ -23,19 +23,15 @@ Table of Contents
 .. toctree::
     :caption: Tutorials
 
-.. todo:: Add any Learn guide links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
-
 .. toctree::
     :caption: Related Products
 
-.. todo:: Add any product links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
+    Adafruit DotStars <https://learn.adafruit.com/adafruit-dotstar-leds>
 
 .. toctree::
     :caption: Other Links
 
-    Download <https://github.com/dhocker/circuitpython_CircuitPython_dotstarapa102/releases/latest>
+    Download <https://github.com/dhocker/CircuitPython_DotStarAPA102/releases/latest>
     CircuitPython Reference Documentation <https://circuitpython.readthedocs.io>
     CircuitPython Support Forum <https://forums.adafruit.com/viewforum.php?f=60>
     Discord Chat <https://adafru.it/discord>

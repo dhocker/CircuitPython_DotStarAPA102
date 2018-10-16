@@ -1,3 +1,15 @@
+# -*- coding: utf-8 -*-
+#
+# Test and example of DotStarAPA102 driver.
+# Copyright © 2018  Dave Hocker
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3 of the License.
+#
+# See the LICENSE.md file for more details.
+#
+
 import time
 import board
 import busio
