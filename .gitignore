@@ -2,7 +2,7 @@ __pycache__
 _build
 *.pyc
 .env
-build*
+build/
 bundles
 circuitpython_dotstarapa102.egg-info/
 dist/

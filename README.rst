@@ -133,10 +133,8 @@ wired up a DotStar string.
     cd ~/CircuitPython_DotStarAPA102
     python examples/dotstarapa102_test.py
 
-Sphinx documentation
+Sphinx Documentation
 -----------------------
-
-TBD
 
 Sphinx is used to build the documentation based on rST files and comments in the code. First,
 install dependencies (feel free to reuse the virtual environment from above):
@@ -151,11 +149,10 @@ Now, once you have the virtual environment activated:
 .. code-block:: shell
 
     cd docs
-    sphinx-build -E -W -b html . _build/html
+    ./build.sh
 
 This will output the documentation to ``docs/_build/html``. Open the index.html in your browser to
-view them. It will also (due to -W) error out on any warning. This is a good way to
-locally verify it will pass.
+view them.
 
 Appendices
 ==========
