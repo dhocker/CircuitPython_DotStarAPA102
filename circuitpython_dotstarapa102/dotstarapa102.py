@@ -241,7 +241,7 @@ class DotStarAPA102:
         :param show: If True, transmit cleared pixels.
         :return: True if successful.
         """
-        self.fill_brgb(0, 0, 0, 0)
+        self.fill_brgb(self.global_brightness, 0, 0, 0)
         if show:
             return self.show()
         return True
