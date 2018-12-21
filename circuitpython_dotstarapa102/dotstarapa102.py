@@ -26,7 +26,7 @@ class DotStarAPA102:
     
     Methods from the original Adafruit_Dotstar_Pi package
 
-    * begin (not needed in this implementation and not impemented)
+    * begin (not needed in this implementation and not implemented)
     * clear (resets all pixels)
     * setBrightness (implemented as global_brightness property)
     * set_pixel_color (was setPixelColor)
@@ -55,7 +55,7 @@ class DotStarAPA102:
         Initialize an instance of DotStarAPA102
 
         :param spi: An SPIDevice instance that defines the SPI bus to be used.
-        :param num_px: Number of pixels in the SotStar string.
+        :param num_px: Number of pixels in the DotStar/APA102 string.
         :param order: Order of the color components.
         """
         # The spi object must be of the correct type
@@ -97,7 +97,7 @@ class DotStarAPA102:
     @property
     def num_pixels(self):
         """
-        Returns the number of pixels in the current DotStar string.
+        Returns the number of pixels in the current DotStar/APA102 string.
 
         :return: Number of pixels in string.
         """
@@ -126,7 +126,7 @@ class DotStarAPA102:
         if v >= 0 and v <= 31:
             self.global_brightness_value = v
         else:
-            raise ValueError("Global brightness must be in the range")
+            raise ValueError("Global brightness must be in the range 0-31")
         
     def get_pixel_color(self, pixel):
         """
@@ -225,7 +225,7 @@ class DotStarAPA102:
             
     def show(self):
         """
-        Transmit all pixels to the DotStar string.
+        Transmit all pixels to the DotStar/APA102 string.
 
         :return: True if successful.
         """
